@@ -1,0 +1,56 @@
+create table profession(
+id number(20),
+name varchar(30),
+city varchar(20),
+salary number(30),
+age number,
+role varchar(30)
+);
+
+
+insert into  profession values(1201,'Ghosal','mumbai',40000,30,'Singer');
+insert into  profession values(1202,'Dhoni','chennai',30000,35,'cricketer');
+insert into  profession values(1203,'Ronalado','pune',55000,34,'Football');
+insert into  profession values(1204,'Virat','mumbai',25000,35,'Cricketer');
+insert into  profession values(1205,'Rohit','mumbai',50000,35,'Software');
+insert into  profession values(1206,'Anirudh','chennai',28000,25,'M.Director');
+insert into  profession values(1207,'Geeta','Hyderabad',34000,32,'Singer');
+insert into  profession values(1208,'pallavi','kerala',44000,30,'actress');
+insert into  profession values(1209,'Geeta','ranchi',36000,27,'HR');
+insert into  profession values(1210,'deepika','bangalore',25000,28,'actress');
+
+
+
+
+CREATE TABLE Sales (
+    sale_id INT,
+    product_id INT,
+    sale_amount DECIMAL(10, 2),
+    product_name VARCHAR(50)
+);
+drop table Sales;
+INSERT INTO Sales VALUES(1, 1, 100.00,'Product A');
+INSERT INTO Sales VALUES(2, 1, 150.00,'Product A');
+INSERT INTO Sales VALUES(3, 2, 200.00,'Product B');
+INSERT INTO Sales VALUES(4, 3, 50.00,'Product C');
+INSERT INTO Sales VALUES(5, 2, 300.00,'Product B');
+
+
+
+
+
+
+
+CREATE TABLE Sales (
+    sale_id INT,
+    sale_date DATE,
+    amount DECIMAL(10, 2)
+);
+drop table Sales;
+
+INSERT INTO Sales (sale_id, sale_date, amount) VALUES (1, TO_DATE('2023-JAN-01', 'YYYY-MON-DD'), 100.00);
+INSERT INTO Sales (sale_id, sale_date, amount) VALUES (2, TO_DATE('2023-JAN-02', 'YYYY-MON-DD'), 150.00);
+INSERT INTO Sales (sale_id, sale_date, amount) VALUES (3, TO_DATE('2023-JAN-03', 'YYYY-MON-DD'), 200.00);
+INSERT INTO Sales (sale_id, sale_date, amount) VALUES (4, TO_DATE('2023-JAN-04', 'YYYY-MON-DD'), 50.00);
+INSERT INTO Sales (sale_id, sale_date, amount) VALUES (5, TO_DATE('2023-JAN-05', 'YYYY-MON-DD'), 300.00);
+select * from Sales;

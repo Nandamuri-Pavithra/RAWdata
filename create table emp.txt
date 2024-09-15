@@ -1,0 +1,33 @@
+create table emp
+(
+    eid number,
+    ename varchar2(20),
+    age number,
+    salary number,
+    job varchar2(30)
+);
+
+insert into emp values(1,'john',25,5000,'HR');
+insert into emp values(2,'ritika',26,15000,'tester');
+insert into emp values(3,'kishan',29,9000,'developer');
+insert into emp values(4,'nupur',25,5500,'TR');
+insert into emp values(5,'sita',32,17000,'HR');
+
+
+CREATE TABLE employees (
+    empid INT PRIMARY KEY,
+    empname VARCHAR(100),
+    salary DECIMAL(10, 2),
+    managerid INT
+);
+
+INSERT INTO employees VALUES(1, 'John Doe', 75000, NULL);
+INSERT INTO employees VALUES(2, 'Jane Smith', 65000, 1);
+INSERT INTO employees VALUES(3, 'Emily Davis', 60000, 1);
+INSERT INTO employees VALUES(4, 'Michael Brown', 55000, 2);
+INSERT INTO employees VALUES(5, 'Chris Wilson', 50000, 2);
+INSERT INTO employees VALUES(6, 'Sara Johnson', 48000, 3);
+INSERT INTO employees VALUES(7, 'David Lee', 47000, 3);
+INSERT INTO employees VALUES(8, 'Paul Martinez', 46000, 4);
+INSERT INTO employees VALUES(9, 'Laura Green', 45000, 4);
+INSERT INTO employees VALUES(10, 'Megan White', 44000, 5);

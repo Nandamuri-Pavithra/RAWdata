@@ -1,0 +1,478 @@
+  1.	Write a PL/SQL program to arrange the number of two variable in such a way that the small number will store in num_small variable and large number will store in num_large variable.
+
+
+     set serveroutput on;
+     declare
+     num_small number :=8;
+     num_larg number:=5;
+     num_temp number;
+     begin
+       if num_small > num_larg
+       then 
+       num_temp := num_small;
+       num_small :=num_larg;
+       num_larg :=num_temp;
+       end if;
+       dbms_output.put_line('smallest number is'||num_small);
+       dbms_output.put_line('Greatest number is'||num_larg);
+   
+      end;
+
+2)	Write a PL/SQL program to check whether a number is even or odd.
+
+	set serveroutput on;
+	declare
+	n1 number:='&n1';
+	begin
+     		if n1 mod 2 = 0
+     		then
+     		dbms_output.put_line('The number '||n1||' is even number');
+     		else
+     		dbms_output.put_line('The number '||n1||' is odd number');
+     		end if;
+	end;
+
+3)	Write a PL/SQL program to check whether a date falls on weekend i.e. SATURDAY or SUNDAY.
+
+
+	set serveroutput on;
+	declare
+	dt1 date:=to_date('&new_dt','dd-mm-yyyy');
+	get_day varchar2(15):=rtrim(to_char(dt1,'day'));
+	begin
+		if get_day in('saturday','sunday')
+		then
+		dbms_output.put_line('The day of the given date is'|| get_day||' and it falls on weekend');
+		else
+		dbms_output.put_line('The day of the given date is '|| get_day||' and it does not fall on the weekend');
+
+		end if;
+	end;
+
+
+4)
+	 Write a PL/SQL program to check whether a given number is positive, negative or zero.
+
+
+set serveroutput on;
+declare 
+num number:='&num';
+begin 
+if num>0
+then 
+dbms_output.put_line(' number '||num||' is positive');
+elsif num =0
+then
+dbms_output.put_line('number' ||num||' is zero');
+else
+dbms_output.put_line('number' ||num||' is negative');
+end if;
+end;
+
+5)	 Write a program in PL/SQL print the value of a variable inside and outside a loop using LOOP EXIT statement.
+
+set serveroutput on;
+declare
+x number(2):=38;
+begin
+while x<50 loop
+    dbms_output.put_line('value of x :'|| x );
+    x:=x+5;
+    end loop;
+    dbms_output.put_line('value of x :'|| x);
+    end;
+
+6)	 Write a program in PL/SQL to show the uses of nested loop
+
+set serveroutput on;
+declare 
+z number(2);
+begin 
+for x in 1..5 loop
+    for y in 1..2 loop
+        z:=x+y;
+
+        dbms_output.put_line('value of z:'|| z);
+        end loop;
+        end loop;
+end;
+
+8) 	 Write a program in PL/SQL using nested loop with EXIT WHEN statement.
+
+set serveroutput on;
+declare 
+z number(2);
+begin 
+for x in 1..5 loop
+    for y in 1..2 loop
+        z:=x+y;
+        exit when z=8;
+
+        dbms_output.put_line('value of z:'|| z);
+        end loop;
+        
+        end loop;
+end;
+
+9)  Write a program in PL/SQL using loop with CONTINUE WHEN statement.
+set serveroutput on;
+begin 
+for i in 1..9 loop
+continue when i=5 ;
+dbms_output.put_line('value of i is '|| i);
+end loop;
+end;
+
+10)	 Write a program in PL/SQL using loop with CONTINUE statement.
+
+set serveroutput on;
+begin 
+for i in 1..9 loop
+ if i=7 then
+ continue;
+ end if;
+dbms_output.put_line('value of i is '|| i);
+end loop;
+end;
+
+11) Write a program in PL/SQL to print 1st n numbers.
+
+set serveroutput on
+begin
+for i in 1..10 loop
+dbms_output.put_line(i);
+end loop;
+end ;
+
+12) Write a program in PL/SQL to print 1st n numbers with a difference of 3 and starting from 1.
+set serveroutput on
+declare
+a number(2):=1;
+begin
+for i in 1..10 loop
+a:=a+3;
+dbms_output.put_line(a);
+end loop;
+end ;
+
+13)Write a PL/SQL program to display the description against a grade using CASE statement.
+set serveroutput on;
+declare
+grade char(1) := '&grade';
+begin
+case grade
+when 'a' then dbms_output.put_line('Excellent');
+when 'b' then dbms_output.put_line('Very good');
+when 'c' then dbms_output.put_line('Well done');
+when 'd' then dbms_output.put_line('You passed');
+when 'f' then dbms_output.put_line ('Better try again');
+else dbms_output.put_line('No such grade');
+end case;
+dbms_output.put_line('execution done successfully');
+end;
+
+14) Write a PL/SQL program to display the description against a grade using CASE statement with EXCEPTION.
+
+
+set serveroutput on;
+declare
+grade char(1) := '&grade';
+begin
+case grade
+when 'a' then dbms_output.put_line('Excellent');
+when 'b' then dbms_output.put_line('Very good');
+when 'c' then dbms_output.put_line('Well done');
+when 'd' then dbms_output.put_line('You passed');
+when 'f' then dbms_output.put_line ('Better try again');
+else dbms_output.put_line('fail');
+end case;
+exception when case_not_found then
+dbms_output.put_line('No  grade found');
+dbms_output.put_line('execution done successfully');
+end;
+
+15) 	 Write a PL/SQL program to check whether a given character is letter or digit.
+
+set serveroutput on;
+declare
+ch varchar(2):= '&input';
+begin
+if (ch>='a' and ch<='z') or (ch>='A' and ch<='Z')then
+dbms_output.put_line('The input is '||ch||' character');
+elsif (ch >= 0 and ch <= 9) THEN
+dbms_output.put_line('The input  is '||ch||' digit ');
+end if;
+dbms_output.put_line('executed done successfully');
+end;
+
+
+16) Write a PL/SQL program to convert a temperature in scale Fahrenheit to Celsius and vice versa.
+
+set serveroutput on
+declare 
+c number := '&Celsius';
+f number := '&Farehheit';
+begin
+ if(c=0) then
+ c := ((5/9) * (f-32));
+ dbms_output.put_line('Celsius is '||c);
+ elsif(f=0) then
+ f := (c * (9/5)) + 32;
+ dbms_output.put_line('Fahrenheit is'||f);
+ else dbms_output.put_line('No such temperature');
+ end if;
+end;
+
+17) Write a PL/SQL program to display which day is a specific date.
+set servetoutput on;
+declare
+dt1 DATE := TO_DATE('&new_dt','DD-MON-YYYY');
+get_day VARCHAR2(15);
+begin
+ get_day := RTRIM(TO_CHAR(dt1,'DAY'));
+ dbms_output.put_line('The day of the given date is '||get_day);
+end;
+
+18) Write a program in PL/SQL to show the value of a same variable declared as local and global
+ 
+
+set serveroutput on;
+declare
+num1 number:=&num1;
+num2 number:=&num2;
+begin
+dbms_output.put_line('global variable1:'||num1);
+dbms_output.put_line('global variable2:'||num2);
+declare
+num1 number:=&num1;
+num2 number:=&num2;
+begin
+dbms_output.put_line('local variable1:'||num1);
+dbms_output.put_line('local variable2:'||num2);
+end;
+end;
+
+19) Write a program in PL/SQL to explain the uses of nested for loop with label.
+set serveroutput on;
+declare
+ i number(1);
+ j number(1);
+begin
+ <<outer_loop>> 
+ for i IN 1..5 LOOP
+ <<inner_loop>>
+ for j IN 1..2 LOOP
+ dbms_output.put_line('i is: '|| i || ' and j is: '|| j);
+ end loop inner_loop;
+ end loop outer_loop;
+end;
+
+20) Write a program in PL/SQL to print the prime numbers between 1 to 50.
+
+set serveroutput on;
+declare
+ i number(3); 
+ j number(3); 
+begin 
+ i := 2; 
+loop
+ j:= 2; 
+loop 
+ exit when ((mod(i, j) = 0) or (j = i)); 
+ j := j +1; 
+end loop; 
+ IF (j = i ) then 
+ dbms_output.put_line(i || ' is prime'); 
+end if; 
+ i := i + 1; 
+ exit when i = 50; 
+ end loop; 
+end;
+
+21) Write a program in PL/SQL to check whether a number is prime or not using goto statemt with for loop.
+Set serveroutput on;
+DECLARE
+st VARCHAR2(30);
+N INTEGER := &n;
+BEGIN
+FOR I IN 2..ROUND(SQRT(N)) LOOP
+IF N MOD I = 0 THEN
+st := ' is not a prime number';
+GOTO WHEN_PRIME;
+END IF;
+END LOOP;
+st := ' is a prime number';
+<< WHEN_PRIME >>
+DBMS_OUTPUT.PUT_LINE(N || st);
+END;
+
+22) 
+Write a program in PL/SQL to insert records from one table to another.
+CREATE TABLE employe38(
+emp_no
+NUMBER,
+emp_name VARCHAR2(40)
+);
+DECLARE
+n NUMBER;
+BEGIN
+SELECT COUNT(empno) INTO n
+FROM emp;
+FOR i IN 1..n LOOP
+INSERT INTO employe38(emp_no, emp_name)
+select empno , ename from emp where rownum=1;
+END LOOP;
+END;
+select * from employe38;
+
+
+
+23) Write a PL/SQL procedure to calculate incentive achieved according to the 
+specific sale limit.
+set serveroutput on 
+declare 
+sal_achieve number(7) := &SALARY;
+incentive number := 0;
+begin
+ if(sal_achieve>44000) then
+ incentive:=1800;
+ elsif(sal_achieve>32000) then
+ incentive:=800;
+ else
+ incentive:=500;
+ end if;
+ dbms_output.put_line('Sale achieved: '||sal_achieve||' , incentive = '||incentive||'.');
+end;
+
+24) Write a PL/SQL procedure to calculate the incentive on a target achieved and display the message either the record updated or not.
+
+set serveroutput on ;
+declare sal_achieve number(4) := &salary; 
+target_qty number := &targetT; 
+emp_id number := employeid; 
+incentive number := 0; updateds varchar2(3):='No'; 
+begin if(sal_achieve>(target_qty+200)) then incentive := (sal_achieve-target_qty)/4; 
+update emp set esal=esal+incentive where eno=emp_id; updateds := 'Yes'; 
+else dbms_output.put_line('Table updated? '||updateds||' , incentive = '||incentive||'.'); 
+end if; 
+end;
+
+25) Write a PL/SQL procedure to calculate the incentive on a specific target otherwise a general incentive to be paid using IF-THEN-ELSE.
+
+set serveroutput on;
+declare
+sal_achive number := &sal;
+target_qty number := &tag;
+empno_id number(4) :=&emp;
+incentive number := 0;
+BEGIN
+if(sal_achive >(target_qty +200)) then
+incentive := (sal_achive - target_qty )/4;
+update emp set sal = sal + incentive where empno = 
+empno_id;
+dbms_output.put_line('TABLE IS updated '||','||'incentive 
+= '||incentive);
+else
+incentive :=75;
+update emp set sal = sal + incentive where empno = 
+empno_id;
+dbms_output.put_line('TABLE IS updated '||','||'incentive 
+= '||incentive);
+end if;
+end;
+
+27) Write a PL/SQL program to count number of employees in department 20 and check whether this department have any vacancies or not. There are 4 vacancies in this department
+ 
+set serveroutput on;
+declare
+tot_emp number;
+begin
+select count(*) into tot_emp from emp e join
+dept d on e.deptno=d.deptno where e.deptno=20;
+if tot_emp >=20 then
+dbms_output.put_line('There are no vaccancies in
+department 40');
+else
+dbms_output.put_line('There are some vaccancies in
+department 40');
+end if;
+end;
+
+28) Write a PL/SQL program to count number of employees in a specific department and check whether this department have any vacancies or not. If any vacancies, how many vacancies are in that department.
+
+set serveroutput on;
+declare
+tot_emp number;
+begin
+select count(*) into tot_emp from emp e join
+dept d on e.deptno=d.deptno where e.deptno=20;
+if tot_emp >=40 then
+dbms_output.put_line('There are no vaccancies in
+department 40');
+else
+dbms_output.put_line('There are some vaccancies in
+department 40');
+end if;
+end;
+
+29)  Write a program in PL/SQL to insert a row if the featched value for a component is specified.
+
+set serveroutput on; 
+declare
+no number(10); 
+name varchar2(10); 
+name1 varchar2(10):='&names'; 
+begin 
+select empno,ename into no,name from emp where ename='rohit';
+if name1=name then insert into empd values(no,name);
+end if; 
+end;
+
+30) Write a program in PL/SQL to update the salary of a specifc employee by 8% if the salary exceeds the mid range of the salary against this job and update up to mid range if the salary is less than the mid range of the salary, and display a suitable message.
+
+set serveroutput on;
+Declare
+salary number := 25000; 
+temp_sal number; 
+BEGIN 
+temp_sal := (salary * 0.8); 
+salary := temp_sal+salary; 
+IF salary=20000 THEN 
+dbms_output.put_line('The salary is in mid range.'); ELSIF salary>20000 THEN 
+dbms_output.put_line('The salary is in high range.'); ELSE dbms_output.put_line('The salary is in low 
+range.'); 
+end if;
+end;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

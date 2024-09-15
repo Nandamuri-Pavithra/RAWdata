@@ -1,0 +1,22 @@
+-- Create employees table
+CREATE TABLE employees (
+    id INT PRIMARY KEY,
+    fname VARCHAR(50),
+    lname VARCHAR(50),
+    department VARCHAR(50),
+    salary DECIMAL(10,2),
+    hiredate DATE
+);
+
+-- Insert data into employees table
+INSERT INTO employees (id, fname, lname, department, salary, hiredate) VALUES
+(1, 'John', 'Smith', 'HR', 60000, '2020-03-15'),
+(2, 'Emily', 'Johnson', 'Marketing', 55000, '2019-08-20'),
+(3, 'Michael', 'Williams', 'Sales', 62000, '2021-01-10'),
+(4, 'Jessica', 'Brown', 'IT', 65000, '2018-11-05'),
+(5, 'David', 'Jones', 'Finance', 70000, '2017-06-30'),
+(6, 'Sarah', 'Martinez', 'HR', 58000, '2019-12-12'),
+(7, 'Christopher', 'Garcia', 'Marketing', 56000, '2022-02-28'),
+(8, 'Ashley', 'Rodriguez', 'Sales', 63000, '2023-05-07'),
+(9, 'James', 'Hernandez', 'IT', 67000, '2020-09-25'),
+(10, 'Mary', 'Lopez', 'Finance', 72000, '2016-04-17');
